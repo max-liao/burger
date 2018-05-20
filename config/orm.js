@@ -23,11 +23,11 @@ var orm = {
       cb(result);
     });
   },
-  updateOne: function(name, devoured, cb) {
+  updateOne: function(id, devoured, cb) {
     var queryString = "UPDATE burgers SET devoured= true"
     // queryString += devoured;
-    queryString += " WHERE burger_name= ";
-    queryString += name;
+    queryString += " WHERE id= ";
+    queryString += id;
 
     connection.query(queryString, function(err, result) {
       if (err) throw err;
