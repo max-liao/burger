@@ -15,19 +15,20 @@ var orm = {
       cb(result);
     });
   },
-  selectOne: function(name, cb) {
-    var queryString = "SELECT * FROM burgers WHERE burger_name=";
-    queryString += name;
-    connection.query(queryString, function(err, result) {
+  createOne: function(name, devoured, cb) {
+    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?,?)";
+    connection.query(queryString, [name, devoured], function(err, result) {
       if (err) throw err;
       console.log(result);
       cb(result);
     });
   },
   updateOne: function(name, devoured, cb) {
-    var queryString = "UPDATE burgers SET devoured="
-    queryString += devoured + "WHERE burger_name=";
+    var queryString = "UPDATE burgers SET devoured= true"
+    // queryString += devoured;
+    queryString += " WHERE burger_name= ";
     queryString += name;
+
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       console.log(result);

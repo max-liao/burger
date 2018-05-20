@@ -9,17 +9,17 @@ var burger = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
-  selectOne: function(name, cb) {
-    orm.selectOne("burgers", name, function(res) {
+  
+  createone: function(name, devoured, cb) {
+    orm.createOne(name, devoured, function(res) {
       cb(res);
-      return res;
+      // return res;
     });
   },
-  updateOne: function(name, devoured, cb) {
-    orm.updateOne("burgers", name, devoured, function(res) {
+  updateone: function(name, devoured, cb) {
+    orm.updateOne(name, devoured, function(res) {
       cb(res);
-      return res;
+      // return res;
     });
   }
 };
